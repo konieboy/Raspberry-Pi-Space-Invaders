@@ -1,0 +1,484 @@
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD build/main.o
+LOAD build/score.o
+LOAD build/update_hero_data.o
+LOAD build/pauseScreen.o
+LOAD build/jtag.o
+LOAD build/framebuffer.o
+LOAD build/box.o
+LOAD build/enemyMoves.o
+LOAD build/getScore.o
+LOAD build/drawBorder.o
+LOAD build/startScreen.o
+LOAD build/delay.o
+LOAD build/barriers.o
+LOAD build/rectangle.o
+LOAD build/emptybox.o
+LOAD build/snes_gpio.o
+LOAD build/youWin.o
+LOAD build/winlossCond.o
+LOAD build/whiteout.o
+LOAD build/youLose.o
+LOAD build/removeobjects.o
+LOAD build/object_data.o
+LOAD build/update_hero_video.o
+LOAD build/hitChecks.o
+LOAD build/DrawPixel16bpp.o
+LOAD build/DrawChar.o
+LOAD build/restart.o
+LOAD build/triangle.o
+
+.init           0x00008000        0x4
+ *(.init)
+ .init          0x00008000        0x4 build/main.o
+                0x00008000                _start
+ .init          0x00008004        0x0 build/score.o
+ .init          0x00008004        0x0 build/update_hero_data.o
+ .init          0x00008004        0x0 build/pauseScreen.o
+ .init          0x00008004        0x0 build/box.o
+ .init          0x00008004        0x0 build/drawBorder.o
+ .init          0x00008004        0x0 build/delay.o
+ .init          0x00008004        0x0 build/barriers.o
+ .init          0x00008004        0x0 build/rectangle.o
+ .init          0x00008004        0x0 build/emptybox.o
+ .init          0x00008004        0x0 build/whiteout.o
+ .init          0x00008004        0x0 build/object_data.o
+ .init          0x00008004        0x0 build/update_hero_video.o
+ .init          0x00008004        0x0 build/DrawPixel16bpp.o
+ .init          0x00008004        0x0 build/triangle.o
+
+.data           0x00009080     0x3d00
+ *(.data)
+ .data          0x00009080      0x800 build/main.o
+ .data          0x00009880      0x810 build/score.o
+ .data          0x0000a090        0x0 build/update_hero_data.o
+ .data          0x0000a090      0x800 build/pauseScreen.o
+ .data          0x0000a890        0x0 build/jtag.o
+ .data          0x0000a890       0x30 build/framebuffer.o
+                0x0000a890                FrameBufferInit
+ .data          0x0000a8c0        0x0 build/box.o
+ .data          0x0000a8c0        0x0 build/enemyMoves.o
+ .data          0x0000a8c0        0x0 build/getScore.o
+ .data          0x0000a8c0        0x0 build/drawBorder.o
+ .data          0x0000a8c0      0x800 build/startScreen.o
+ .data          0x0000b0c0        0x0 build/delay.o
+ .data          0x0000b0c0        0x0 build/barriers.o
+ .data          0x0000b0c0        0x0 build/rectangle.o
+ .data          0x0000b0c0        0x0 build/emptybox.o
+ .data          0x0000b0c0        0x0 build/snes_gpio.o
+ .data          0x0000b0c0      0x800 build/youWin.o
+ .data          0x0000b8c0        0x0 build/winlossCond.o
+ .data          0x0000b8c0        0x0 build/whiteout.o
+ .data          0x0000b8c0      0x800 build/youLose.o
+ .data          0x0000c0c0        0x0 build/removeobjects.o
+ .data          0x0000c0c0      0x4bc build/object_data.o
+                0x0000c0c8                hero
+                0x0000c0e0                pawn
+                0x0000c100                pawn2
+                0x0000c120                pawn3
+                0x0000c140                pawn4
+                0x0000c160                pawn5
+                0x0000c180                pawn6
+                0x0000c1a0                pawn7
+                0x0000c1c0                pawn8
+                0x0000c1e0                pawn9
+                0x0000c200                pawn10
+                0x0000c220                knight
+                0x0000c240                knight2
+                0x0000c260                knight3
+                0x0000c280                knight4
+                0x0000c2a0                knight5
+                0x0000c2c0                queen
+                0x0000c2e0                queen2
+                0x0000c300                queen3
+                0x0000c320                destructoid
+                0x0000c338                destructoid2
+                0x0000c350                destructoid3
+                0x0000c368                destructoid4
+                0x0000c380                bullet
+                0x0000c398                bullet_p
+                0x0000c3b0                bullet_p2
+                0x0000c3c8                bullet_p3
+                0x0000c3e0                bullet_p4
+                0x0000c3f8                bullet_p5
+                0x0000c410                bullet_p6
+                0x0000c428                bullet_p7
+                0x0000c440                bullet_p8
+                0x0000c458                bullet_p9
+                0x0000c470                bullet_p10
+                0x0000c488                bullet_k
+                0x0000c4a0                bullet_k2
+                0x0000c4b8                bullet_k3
+                0x0000c4d0                bullet_k4
+                0x0000c4e8                bullet_k5
+                0x0000c500                bullet_q
+                0x0000c518                bullet_q2
+                0x0000c530                bullet_q3
+                0x0000c548                snes_buttons
+ .data          0x0000c57c        0x0 build/update_hero_video.o
+ .data          0x0000c57c        0x0 build/hitChecks.o
+ .data          0x0000c57c        0x0 build/DrawPixel16bpp.o
+ *fill*         0x0000c57c        0x4 3f3f3f3f
+ .data          0x0000c580      0x800 build/DrawChar.o
+ .data          0x0000cd80        0x0 build/restart.o
+ .data          0x0000cd80        0x0 build/triangle.o
+ *.c.o(*)
+
+.igot.plt       0x0000cd80        0x0
+ .igot.plt      0x00000000        0x0 build/main.o
+
+.text           0x0000cd80     0x2ccc
+ *.c.o(.text)
+ *(.text)
+ .text          0x0000cd80       0x7c build/main.o
+                0x0000cdcc                start
+                0x0000cde4                gameLoop
+                0x0000cdf8                haltLoop$
+ .text          0x0000cdfc      0x210 build/score.o
+                0x0000cdfc                displayScore
+ .text          0x0000d00c      0xf20 build/update_hero_data.o
+                0x0000d00c                update_hero_data
+                0x0000ddf0                makeBlack
+ .text          0x0000df2c      0x27c build/pauseScreen.o
+                0x0000df2c                pauseScreen
+ .text          0x0000e1a8       0x8c build/jtag.o
+                0x0000e1a8                EnableJTAG
+ .text          0x0000e234       0x64 build/framebuffer.o
+                0x0000e234                InitFrameBuffer
+ .text          0x0000e298       0x3c build/box.o
+                0x0000e298                box
+ .text          0x0000e2d4       0x84 build/enemyMoves.o
+                0x0000e2d4                enemyMove
+ .text          0x0000e358       0x68 build/getScore.o
+                0x0000e358                getScore
+ .text          0x0000e3c0       0x80 build/drawBorder.o
+                0x0000e3c0                border
+ .text          0x0000e440      0x2ec build/startScreen.o
+                0x0000e440                startScreen
+ .text          0x0000e72c        0xc build/delay.o
+                0x0000e72c                delay
+ .text          0x0000e738       0x4c build/barriers.o
+                0x0000e738                barriers
+ .text          0x0000e784       0x3c build/rectangle.o
+                0x0000e784                rectangle
+ .text          0x0000e7c0       0x7c build/emptybox.o
+                0x0000e7c0                emptybox
+ .text          0x0000e83c      0x164 build/snes_gpio.o
+                0x0000e83c                initsnes
+                0x0000e8a4                snes_input
+ .text          0x0000e9a0       0x70 build/youWin.o
+                0x0000e9a0                winMessage
+ .text          0x0000ea10       0x84 build/winlossCond.o
+                0x0000ea10                winLoop
+                0x0000ea4c                lossLoop
+ .text          0x0000ea94       0x24 build/whiteout.o
+                0x0000ea94                whiteout
+ .text          0x0000eab8       0x7c build/youLose.o
+                0x0000eab8                lossMessage
+ .text          0x0000eb34       0x6c build/removeobjects.o
+                0x0000eb34                removebulletenemy
+                0x0000eb58                removebullet
+                0x0000eb7c                removeobject
+ .text          0x0000eba0        0x0 build/object_data.o
+ .text          0x0000eba0      0x4b8 build/update_hero_video.o
+                0x0000eba0                update_hero_video
+                0x0000ebc8                update_bullet_video
+                0x0000ebe0                update_pawn_video
+                0x0000ebf8                update_pawn2_video
+                0x0000ec10                update_pawn3_video
+                0x0000ec28                update_pawn4_video
+                0x0000ec40                update_pawn5_video
+                0x0000ec58                update_pawn6_video
+                0x0000ec70                update_pawn7_video
+                0x0000ec88                update_pawn8_video
+                0x0000eca0                update_pawn9_video
+                0x0000ecb8                update_pawn10_video
+                0x0000ecd0                update_knight_video
+                0x0000ece8                update_knight2_video
+                0x0000ed00                update_knight3_video
+                0x0000ed18                update_knight4_video
+                0x0000ed30                update_knight5_video
+                0x0000ed48                update_queen_video
+                0x0000ed60                update_queen2_video
+                0x0000ed78                update_queen3_video
+ .text          0x0000f058      0x2f4 build/hitChecks.o
+                0x0000f058                hitcheck
+                0x0000f0c0                heroHitCheck
+                0x0000f124                destructHitCheck
+                0x0000f1a8                destructHitCheck2
+                0x0000f22c                destructHitCheck3
+                0x0000f2b0                destructHitCheck4
+ .text          0x0000f34c       0x18 build/DrawPixel16bpp.o
+                0x0000f34c                DrawPixel16bpp
+ .text          0x0000f364       0x78 build/DrawChar.o
+                0x0000f364                DrawChar
+ .text          0x0000f3dc      0x618 build/restart.o
+                0x0000f3dc                restart
+ .text          0x0000f9f4       0x58 build/triangle.o
+                0x0000f9f4                triangle
+OUTPUT(build/output.elf elf32-littlearm)
+
+.glue_7         0x0000fa4c        0x0
+ .glue_7        0x00000000        0x0 linker stubs
+
+.glue_7t        0x0000fa4c        0x0
+ .glue_7t       0x00000000        0x0 linker stubs
+
+.vfp11_veneer   0x0000fa4c        0x0
+ .vfp11_veneer  0x00000000        0x0 linker stubs
+
+.v4_bx          0x0000fa4c        0x0
+ .v4_bx         0x00000000        0x0 linker stubs
+
+.iplt           0x0000fa4c        0x0
+ .iplt          0x00000000        0x0 build/main.o
+
+.rel.dyn        0x0000fa4c        0x0
+ .rel.iplt      0x00000000        0x0 build/main.o
+
+.bss            0x0000fa4c        0x0
+ .bss           0x0000fa4c        0x0 build/main.o
+ .bss           0x0000fa4c        0x0 build/score.o
+ .bss           0x0000fa4c        0x0 build/update_hero_data.o
+ .bss           0x0000fa4c        0x0 build/pauseScreen.o
+ .bss           0x0000fa4c        0x0 build/jtag.o
+ .bss           0x0000fa4c        0x0 build/framebuffer.o
+ .bss           0x0000fa4c        0x0 build/box.o
+ .bss           0x0000fa4c        0x0 build/enemyMoves.o
+ .bss           0x0000fa4c        0x0 build/getScore.o
+ .bss           0x0000fa4c        0x0 build/drawBorder.o
+ .bss           0x0000fa4c        0x0 build/startScreen.o
+ .bss           0x0000fa4c        0x0 build/delay.o
+ .bss           0x0000fa4c        0x0 build/barriers.o
+ .bss           0x0000fa4c        0x0 build/rectangle.o
+ .bss           0x0000fa4c        0x0 build/emptybox.o
+ .bss           0x0000fa4c        0x0 build/snes_gpio.o
+ .bss           0x0000fa4c        0x0 build/youWin.o
+ .bss           0x0000fa4c        0x0 build/winlossCond.o
+ .bss           0x0000fa4c        0x0 build/whiteout.o
+ .bss           0x0000fa4c        0x0 build/youLose.o
+ .bss           0x0000fa4c        0x0 build/removeobjects.o
+ .bss           0x0000fa4c        0x0 build/object_data.o
+ .bss           0x0000fa4c        0x0 build/update_hero_video.o
+ .bss           0x0000fa4c        0x0 build/hitChecks.o
+ .bss           0x0000fa4c        0x0 build/DrawPixel16bpp.o
+ .bss           0x0000fa4c        0x0 build/DrawChar.o
+ .bss           0x0000fa4c        0x0 build/restart.o
+ .bss           0x0000fa4c        0x0 build/triangle.o
+
+.ARM.attributes
+                0x00000000       0x26
+ .ARM.attributes
+                0x00000000       0x26 build/main.o
+ .ARM.attributes
+                0x00000026       0x26 build/score.o
+ .ARM.attributes
+                0x0000004c       0x26 build/update_hero_data.o
+ .ARM.attributes
+                0x00000072       0x26 build/pauseScreen.o
+ .ARM.attributes
+                0x00000098       0x26 build/jtag.o
+ .ARM.attributes
+                0x000000be       0x26 build/framebuffer.o
+ .ARM.attributes
+                0x000000e4       0x26 build/box.o
+ .ARM.attributes
+                0x0000010a       0x26 build/enemyMoves.o
+ .ARM.attributes
+                0x00000130       0x26 build/getScore.o
+ .ARM.attributes
+                0x00000156       0x26 build/drawBorder.o
+ .ARM.attributes
+                0x0000017c       0x26 build/startScreen.o
+ .ARM.attributes
+                0x000001a2       0x26 build/delay.o
+ .ARM.attributes
+                0x000001c8       0x26 build/barriers.o
+ .ARM.attributes
+                0x000001ee       0x26 build/rectangle.o
+ .ARM.attributes
+                0x00000214       0x26 build/emptybox.o
+ .ARM.attributes
+                0x0000023a       0x26 build/snes_gpio.o
+ .ARM.attributes
+                0x00000260       0x26 build/youWin.o
+ .ARM.attributes
+                0x00000286       0x26 build/winlossCond.o
+ .ARM.attributes
+                0x000002ac       0x26 build/whiteout.o
+ .ARM.attributes
+                0x000002d2       0x26 build/youLose.o
+ .ARM.attributes
+                0x000002f8       0x26 build/removeobjects.o
+ .ARM.attributes
+                0x0000031e       0x26 build/object_data.o
+ .ARM.attributes
+                0x00000344       0x26 build/update_hero_video.o
+ .ARM.attributes
+                0x0000036a       0x26 build/hitChecks.o
+ .ARM.attributes
+                0x00000390       0x26 build/DrawPixel16bpp.o
+ .ARM.attributes
+                0x000003b6       0x26 build/DrawChar.o
+ .ARM.attributes
+                0x000003dc       0x26 build/restart.o
+ .ARM.attributes
+                0x00000402       0x26 build/triangle.o
+
+.debug_line     0x00000000     0x1303
+ .debug_line    0x00000000       0x68 build/main.o
+ .debug_line    0x00000068       0xc5 build/score.o
+ .debug_line    0x0000012d      0x467 build/update_hero_data.o
+ .debug_line    0x00000594       0xed build/pauseScreen.o
+ .debug_line    0x00000681       0x61 build/jtag.o
+ .debug_line    0x000006e2       0x5f build/framebuffer.o
+ .debug_line    0x00000741       0x48 build/box.o
+ .debug_line    0x00000789       0x61 build/enemyMoves.o
+ .debug_line    0x000007ea       0x5a build/getScore.o
+ .debug_line    0x00000844       0x62 build/drawBorder.o
+ .debug_line    0x000008a6      0x100 build/startScreen.o
+ .debug_line    0x000009a6       0x3e build/delay.o
+ .debug_line    0x000009e4       0x51 build/barriers.o
+ .debug_line    0x00000a35       0x4e build/rectangle.o
+ .debug_line    0x00000a83       0x5f build/emptybox.o
+ .debug_line    0x00000ae2       0xa0 build/snes_gpio.o
+ .debug_line    0x00000b82       0x5a build/youWin.o
+ .debug_line    0x00000bdc       0x64 build/winlossCond.o
+ .debug_line    0x00000c40       0x47 build/whiteout.o
+ .debug_line    0x00000c87       0x5e build/youLose.o
+ .debug_line    0x00000ce5       0x5e build/removeobjects.o
+ .debug_line    0x00000d43       0x47 build/object_data.o
+ .debug_line    0x00000d8a      0x17a build/update_hero_video.o
+ .debug_line    0x00000f04      0x10b build/hitChecks.o
+ .debug_line    0x0000100f       0x4c build/DrawPixel16bpp.o
+ .debug_line    0x0000105b       0x60 build/DrawChar.o
+ .debug_line    0x000010bb      0x1f2 build/restart.o
+ .debug_line    0x000012ad       0x56 build/triangle.o
+
+.debug_info     0x00000000      0xa0b
+ .debug_info    0x00000000       0x53 build/main.o
+ .debug_info    0x00000053       0x58 build/score.o
+ .debug_info    0x000000ab       0x63 build/update_hero_data.o
+ .debug_info    0x0000010e       0x5e build/pauseScreen.o
+ .debug_info    0x0000016c       0x57 build/jtag.o
+ .debug_info    0x000001c3       0x5e build/framebuffer.o
+ .debug_info    0x00000221       0x56 build/box.o
+ .debug_info    0x00000277       0x5d build/enemyMoves.o
+ .debug_info    0x000002d4       0x5b build/getScore.o
+ .debug_info    0x0000032f       0x5d build/drawBorder.o
+ .debug_info    0x0000038c       0x5e build/startScreen.o
+ .debug_info    0x000003ea       0x58 build/delay.o
+ .debug_info    0x00000442       0x5b build/barriers.o
+ .debug_info    0x0000049d       0x5c build/rectangle.o
+ .debug_info    0x000004f9       0x5b build/emptybox.o
+ .debug_info    0x00000554       0x5c build/snes_gpio.o
+ .debug_info    0x000005b0       0x59 build/youWin.o
+ .debug_info    0x00000609       0x5e build/winlossCond.o
+ .debug_info    0x00000667       0x5b build/whiteout.o
+ .debug_info    0x000006c2       0x5a build/youLose.o
+ .debug_info    0x0000071c       0x60 build/removeobjects.o
+ .debug_info    0x0000077c       0x5e build/object_data.o
+ .debug_info    0x000007da       0x64 build/update_hero_video.o
+ .debug_info    0x0000083e       0x5c build/hitChecks.o
+ .debug_info    0x0000089a       0x61 build/DrawPixel16bpp.o
+ .debug_info    0x000008fb       0x5b build/DrawChar.o
+ .debug_info    0x00000956       0x5a build/restart.o
+ .debug_info    0x000009b0       0x5b build/triangle.o
+
+.debug_abbrev   0x00000000      0x22e
+ .debug_abbrev  0x00000000       0x12 build/main.o
+ .debug_abbrev  0x00000012       0x14 build/score.o
+ .debug_abbrev  0x00000026       0x14 build/update_hero_data.o
+ .debug_abbrev  0x0000003a       0x14 build/pauseScreen.o
+ .debug_abbrev  0x0000004e       0x14 build/jtag.o
+ .debug_abbrev  0x00000062       0x14 build/framebuffer.o
+ .debug_abbrev  0x00000076       0x14 build/box.o
+ .debug_abbrev  0x0000008a       0x14 build/enemyMoves.o
+ .debug_abbrev  0x0000009e       0x14 build/getScore.o
+ .debug_abbrev  0x000000b2       0x14 build/drawBorder.o
+ .debug_abbrev  0x000000c6       0x14 build/startScreen.o
+ .debug_abbrev  0x000000da       0x14 build/delay.o
+ .debug_abbrev  0x000000ee       0x14 build/barriers.o
+ .debug_abbrev  0x00000102       0x14 build/rectangle.o
+ .debug_abbrev  0x00000116       0x14 build/emptybox.o
+ .debug_abbrev  0x0000012a       0x14 build/snes_gpio.o
+ .debug_abbrev  0x0000013e       0x14 build/youWin.o
+ .debug_abbrev  0x00000152       0x14 build/winlossCond.o
+ .debug_abbrev  0x00000166       0x14 build/whiteout.o
+ .debug_abbrev  0x0000017a       0x14 build/youLose.o
+ .debug_abbrev  0x0000018e       0x14 build/removeobjects.o
+ .debug_abbrev  0x000001a2       0x14 build/object_data.o
+ .debug_abbrev  0x000001b6       0x14 build/update_hero_video.o
+ .debug_abbrev  0x000001ca       0x14 build/hitChecks.o
+ .debug_abbrev  0x000001de       0x14 build/DrawPixel16bpp.o
+ .debug_abbrev  0x000001f2       0x14 build/DrawChar.o
+ .debug_abbrev  0x00000206       0x14 build/restart.o
+ .debug_abbrev  0x0000021a       0x14 build/triangle.o
+
+.debug_aranges  0x00000000      0x388
+ .debug_aranges
+                0x00000000       0x28 build/main.o
+ .debug_aranges
+                0x00000028       0x20 build/score.o
+ .debug_aranges
+                0x00000048       0x20 build/update_hero_data.o
+ .debug_aranges
+                0x00000068       0x20 build/pauseScreen.o
+ .debug_aranges
+                0x00000088       0x20 build/jtag.o
+ .debug_aranges
+                0x000000a8       0x20 build/framebuffer.o
+ .debug_aranges
+                0x000000c8       0x20 build/box.o
+ .debug_aranges
+                0x000000e8       0x20 build/enemyMoves.o
+ .debug_aranges
+                0x00000108       0x20 build/getScore.o
+ .debug_aranges
+                0x00000128       0x20 build/drawBorder.o
+ .debug_aranges
+                0x00000148       0x20 build/startScreen.o
+ .debug_aranges
+                0x00000168       0x20 build/delay.o
+ .debug_aranges
+                0x00000188       0x20 build/barriers.o
+ .debug_aranges
+                0x000001a8       0x20 build/rectangle.o
+ .debug_aranges
+                0x000001c8       0x20 build/emptybox.o
+ .debug_aranges
+                0x000001e8       0x20 build/snes_gpio.o
+ .debug_aranges
+                0x00000208       0x20 build/youWin.o
+ .debug_aranges
+                0x00000228       0x20 build/winlossCond.o
+ .debug_aranges
+                0x00000248       0x20 build/whiteout.o
+ .debug_aranges
+                0x00000268       0x20 build/youLose.o
+ .debug_aranges
+                0x00000288       0x20 build/removeobjects.o
+ .debug_aranges
+                0x000002a8       0x20 build/object_data.o
+ .debug_aranges
+                0x000002c8       0x20 build/update_hero_video.o
+ .debug_aranges
+                0x000002e8       0x20 build/hitChecks.o
+ .debug_aranges
+                0x00000308       0x20 build/DrawPixel16bpp.o
+ .debug_aranges
+                0x00000328       0x20 build/DrawChar.o
+ .debug_aranges
+                0x00000348       0x20 build/restart.o
+ .debug_aranges
+                0x00000368       0x20 build/triangle.o
+
+.debug_ranges   0x00000000       0x20
+ .debug_ranges  0x00000000       0x20 build/main.o
